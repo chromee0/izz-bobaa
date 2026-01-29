@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IZZ BOBA - Segarnya Kebangetan!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="mobile-frame">
+    <div class="header">
+        <img src="logo boba fais.png" alt="Logo IZZ BOBA" class="logo-img">
+        <h1>IZZ BOBA 🧋</h1>
+        <p>"Segarnya Kebangetan! ✨"</p>
+    </div>
+
+    <div class="poster-card">
+        <img src="poster fais.png" alt="Ice Boba Vanila" class="poster-img">
+        <h2 class="product-title">Ice Boba Vanila 🍦</h2>
+        <div class="price-container">
+            <div class="price-bubble">Kecil: 10.000 🥤</div>
+            <div class="price-bubble gold">Besar: 15.000 👑</div>
+        </div>
+    </div>
+
+    <div class="order-form">
+        <h3 class="form-title">Order Di Sini Yuk! 👇</h3>
+        
+        <div class="input-group">
+            <label>Nama Pembeli: 👤</label>
+            <input type="text" id="nama" placeholder="Tulis nama kamu...">
+        </div>
+
+        <div class="input-group">
+            <label>Pilih Ukuran: 📐</label>
+            <select id="ukuran" onchange="hitungTotal()">
+                <option value="0">-- Pilih Ukuran --</option>
+                <option value="10000">Kecil (Rp 10.000)</option>
+                <option value="15000">Besar (Rp 15.000)</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Jumlah Pesanan: 🛒</label>
+            <input type="number" id="jumlah" min="1" value="1" oninput="hitungTotal()">
+        </div>
+
+        <div class="input-group">
+            <label>Total Bayar: 💰</label>
+            <input type="text" id="total" value="Rp 0" readonly>
+        </div>
+
+        <button class="wa-button" onclick="sendToWA()">
+            PESAN VIA WHATSAPP 📲
+        </button>
+    </div>
+
+    <div class="footer-info">
+        <strong>LOKASI TOKO 📍</strong>
+        <div class="address-box">
+            VMX6+WGQ, Rw. Burung, Kec. Kosambi,<br>
+            Kabupaten Tangerang, Banten
+        </div>
+    </div>
+</div>
+
+<script>
+    function hitungTotal() {
+        const harga = document.getElementById('ukuran').value;
+        const jumlah = document.getElementById('jumlah').value;
+        const total = harga * jumlah;
+        document.getElementById('total').value = "Rp " + total.toLocaleString('id-ID');
+    }
+
+    function sendToWA() {
+        const nama = document.getElementById('nama').value;
+        const ukuranElemen = document.getElementById('ukuran');
+        const ukuranTeks = ukuranElemen.options[ukuranElemen.selectedIndex].text;
+        const jumlah = document.getElementById('jumlah').value;
+        const total = document.getElementById('total').value;
+
+        if(nama === "" || ukuranElemen.value == "0") {
+            alert("Lengkapi nama dan ukuran boba dulu ya kak! 😊");
+            return;
+        }
+
+        const noWA = "62881025014501";
+        
+        // Teks pesan WhatsApp TANPA emoji agar tidak error tanda tanya
+        const pesanText = "Halo IZZ BOBA!\n\n" +
+                          "Saya ingin pesan Ice Boba Vanila.\n\n" +
+                          "DATA PESANAN:\n" +
+                          "------------------------------\n" +
+                          "Nama: " + nama + "\n" +
+                          "Ukuran: " + ukuranTeks + "\n" +
+                          "Jumlah: " + jumlah + " Cup\n" +
+                          "Total: " + total + "\n" +
+                          "------------------------------\n\n" +
+                          "Mohon diproses, terima kasih.";
+
+        window.open("https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesanText), '_blank');
+    }
+</script>
+
+</body>
+</html>

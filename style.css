@@ -1,0 +1,147 @@
+:root {
+    --dark-brown: #3E2723;
+    --main-brown: #6D4C41;
+    --gold-accent: #FFD54F;
+    --bg-cream: #FFF8E1;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Lexend', sans-serif;
+    background: #222; 
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.mobile-frame {
+    width: 100%;
+    max-width: 450px;
+    background-color: var(--bg-cream);
+    min-height: 100vh;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    overflow-x: hidden;
+}
+
+.header {
+    background-color: var(--dark-brown);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    color: var(--white);
+}
+
+.logo-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 4px solid var(--gold-accent);
+    margin-bottom: 12px;
+    background: white;
+    object-fit: cover;
+}
+
+.header h1 {
+    font-family: 'Fredoka One', cursive;
+    color: var(--gold-accent);
+}
+
+.poster-card {
+    margin: -30px 20px 20px;
+    background: var(--white);
+    border-radius: 30px;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.poster-img {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.price-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.price-bubble {
+    background: #FF5252;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 4px 0 #b71c1c;
+    font-size: 0.85rem;
+}
+
+.price-bubble.gold {
+    background: var(--gold-accent);
+    box-shadow: 0 4px 0 #fbc02d;
+    color: var(--dark-brown);
+}
+
+.order-form {
+    padding: 10px 25px 30px;
+}
+
+.form-title {
+    color: #d32f2f;
+    font-family: 'Fredoka One', cursive;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--dark-brown);
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #eee;
+    border-radius: 15px;
+    font-family: inherit;
+}
+
+#total {
+    background-color: #E8F5E9;
+    font-weight: 800;
+    border: 2px solid #4CAF50;
+    color: #2E7D32;
+}
+
+.wa-button {
+    width: 100%;
+    background: #25D366;
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #128C7E;
+    margin-top: 15px;
+}
+
+.footer-info {
+    background: var(--dark-brown);
+    color: var(--white);
+    padding: 25px;
+    text-align: center;
+    font-size: 0.85rem;
+}
